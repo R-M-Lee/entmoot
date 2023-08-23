@@ -1,6 +1,6 @@
 How to install ENTMOOT
 ======================
-ENTMOOT supports the Python (CPython) versions 3.7 - 3.11.
+ENTMOOT supports Python (CPython) versions 3.7 - 3.11.
 
 Using PIP
 -------------
@@ -17,13 +17,13 @@ You can install ENTMOOT with
 
     brew install libomp
 
-In addition, you need to install **one of the following** Python packages.
+In addition, you need to install at least **one of the following** Python packages.
 
 * gurobipy >= 10.0.0
 * pyomo >= 6.4.4
 
 The package gurobipy belongs to the commercial solver `Gurobi <https://www.gurobi.com/>`__ whereas pyomo refers to the
-open source framework `Pyomo <http://www.pyomo.org/>`__ which supports several commercial and noncommercial solvers.
+open source framework `Pyomo <http://www.pyomo.org/>`__ which supports several commercial and noncommercial solvers. Both Pyomo and gurobipy are available on `PyPI <https://pypi.org/>`
 
 
 Gurobi or Pyomo?
@@ -32,7 +32,8 @@ You can work with ENTMOOT using Gurobi or Pyomo.
 
 * `Gurobi <https://www.gurobi.com/>`__ is a commercial mathematical optimization solver which is very fast. Not only
   in solving the corresponding optimization problem but also in building it. Using Gurobi requires a valid license. Note
-  that Gurobi offers `free academic licenses <https://www.gurobi.com/academia/academic-program-and-licenses/>`__.
+  that Gurobi offers `free academic licenses <https://www.gurobi.com/academia/academic-program-and-licenses/>`__. If you install
+  gurobipy without a Gurobi license you will only be able to solve very small problems.
 * `Pyomo <http://www.pyomo.org/>`__ is an open-source optimization modeling language with APIs to several commercial and
   noncommercial solvers. Note that noncommercial solvers are generally (much) slower than commercial ones.
 
@@ -57,4 +58,5 @@ If you are a Windows user and you want to use Pyomo with the free solvers CBC an
 4. Copy the paths containing the executables. In our example, these paths would be ``C:\CBC\bin`` and ``C:\GLPK\glpk-4.65\w64``.
 5. Insert these paths into the environment variable named ``PATH``. You can access this variable under System and
    Security>>System>>Advanced system settings>>Environment Variables. Then click on `path` in the top window, click the
-   `Edit` button, then `New`.
+   `Edit` button, then `New`. Alternatively you can modify the path directly in python by appending to
+   `os.environ['PATH']` (then changes do not persist after your python program has finished executing).
